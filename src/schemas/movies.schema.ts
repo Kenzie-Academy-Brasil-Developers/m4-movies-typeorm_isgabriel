@@ -21,6 +21,8 @@ const sortSchema = z.enum(["id", "duration", "price"]).default("id");
 
 const arrayMoviesSchema = movieResSchema.array();
 
+const movieUpdateSchema = createMovieSchema.partial();
+
 const moviePaginationSchema = z.object({
     count: z.number().min(0),
     data: arrayMoviesSchema,
@@ -33,5 +35,6 @@ export {
     movieResSchema,
     sortSchema,
     arrayMoviesSchema,
+    movieUpdateSchema,
     moviePaginationSchema,
 };
