@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createMovieController } from "../controllers/movies.controllers";
+import {
+    createMovieController,
+    listAllMoviesController,
+} from "../controllers/movies.controllers";
 import ensureNameIsUnique from "../middlewares/ensureNameIsUnique.middleware";
 import ensureMoviedataIsValid from "../middlewares/ensureMovieDataIsValid.middleware";
 import { createMovieSchema } from "../schemas/movies.schema";
@@ -12,7 +15,7 @@ movieRoutes.post(
     ensureNameIsUnique,
     createMovieController
 );
-movieRoutes.get("");
+movieRoutes.get("", listAllMoviesController);
 movieRoutes.delete("/:id");
 movieRoutes.patch("/:id");
 

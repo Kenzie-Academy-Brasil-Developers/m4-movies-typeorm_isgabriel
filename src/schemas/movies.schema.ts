@@ -17,4 +17,21 @@ const movieResSchema = createMovieSchema.extend({
     id: z.number(),
 });
 
-export { createMovieSchema, movieResSchema };
+const sortSchema = z.enum(["id", "duration", "price"]).default("id");
+
+const arrayMoviesSchema = movieResSchema.array();
+
+const moviePaginationSchema = z.object({
+    count: z.number().min(0),
+    data: arrayMoviesSchema,
+    prevPage: z.string().nullable(),
+    nextPage: z.string().nullable(),
+});
+
+export {
+    createMovieSchema,
+    movieResSchema,
+    sortSchema,
+    arrayMoviesSchema,
+    moviePaginationSchema,
+};
