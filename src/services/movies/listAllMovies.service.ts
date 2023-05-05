@@ -46,7 +46,7 @@ const listAllMoviesService = async (
     });
 
     function getPreviousPageUrl() {
-        const isPrevPageDisabled =
+        const isPrevPageDisabled: boolean =
             skip <= 1 ||
             allMoviesListRows - (take * skip - take) < -perPage + 1;
         return isPrevPageDisabled
@@ -55,7 +55,8 @@ const listAllMoviesService = async (
     }
 
     function getNextPageUrl() {
-        const isNextPageDisabled = allMoviesListRows - take * skip <= 0;
+        const isNextPageDisabled: boolean =
+            allMoviesListRows - take * skip <= 0;
         return isNextPageDisabled
             ? null
             : `${baseUrl}?page=${skip + 1}&perPage=${take}`;

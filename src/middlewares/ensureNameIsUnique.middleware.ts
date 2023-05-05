@@ -11,13 +11,13 @@ const ensureNameIsUnique = async (
 ): Promise<void> => {
     const movieRepository: Repository<Movie> =
         AppDataSource.getRepository(Movie);
-    const reqName = request.body.name;
+    const reqName: string = request.body.name;
 
     if (!reqName) {
         return next();
     }
 
-    const findMovie = await movieRepository.findOne({
+    const findMovie: Movie | null = await movieRepository.findOne({
         where: {
             name: reqName,
         },

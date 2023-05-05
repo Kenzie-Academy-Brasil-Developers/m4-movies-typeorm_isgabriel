@@ -8,16 +8,16 @@ import {
 import { Repository } from "typeorm";
 import { Movie } from "../entities";
 
-type IMovieRepo = z.infer<typeof createMovieSchema>;
-type IMovieRes = z.infer<typeof movieResSchema>;
+type TMovieRepo = z.infer<typeof createMovieSchema>;
+type TMovieRes = z.infer<typeof movieResSchema>;
 
 type TMoviePagination = z.infer<typeof moviePaginationSchema>;
 type TMoviesArray = z.infer<typeof arrayMoviesSchema>;
 type TMovieRepository = Repository<Movie>;
 
 export {
-    IMovieRepo,
-    IMovieRes,
+    TMovieRepo,
+    TMovieRes,
     TMoviePagination,
     TMoviesArray,
     TMovieRepository,

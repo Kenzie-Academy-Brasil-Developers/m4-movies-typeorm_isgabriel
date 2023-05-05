@@ -6,7 +6,7 @@ const deleteMovieService = async (movieId: number): Promise<void> => {
     const movieRepository: Repository<Movie> =
         AppDataSource.getRepository(Movie);
 
-    const selectedMovieToDelete = await movieRepository.findOne({
+    const selectedMovieToDelete: Movie | null = await movieRepository.findOne({
         where: {
             id: movieId,
         },

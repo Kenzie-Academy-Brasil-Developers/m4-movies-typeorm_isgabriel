@@ -12,7 +12,7 @@ const ensureMovieExists = async (
     const movieRespository: Repository<Movie> =
         AppDataSource.getRepository(Movie);
 
-    const findMovieOnList = await movieRespository.findOne({
+    const findMovieOnList: Movie | null = await movieRespository.findOne({
         where: {
             id: parseInt(request.params.id),
         },
